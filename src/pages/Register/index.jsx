@@ -1,21 +1,17 @@
 import React from "react";
-import FormLogin from "../../components/Form";
 import Container from "../../styles/container";
 import Typography from "../../styles/typography";
+import FormSubmit from "../../components/Form/FormRegister";
 
-
-
-const Login = ({loading}) => {
+const Register = () => {
   return (
-    <Container>
+    <Container mt="200px">      
       <Typography font="logo" color="colorPrimary">
         Kenzie Hub
       </Typography>
-      <FormLogin
-        loading={loading}
-      />
+      <FormSubmit/>
     </Container>
   )
-}
+};
 
-export default Login
+export default Register;

@@ -1,17 +1,16 @@
 import React from "react";
 import Typography from "../../styles/typography";
-import Theme from "../../styles/theme";
 import InputTheme from "./styles";
 
 
 const Input = ({label, type}) => {
   return(
     <InputTheme>
-    <Typography color={Theme.greyScale.grey0}>
+    <Typography>
       {label}
     </Typography>
       <div>
-        <input type={type} name="" id="" />
+        <input type={type} />
       </div>
     </InputTheme>
   )

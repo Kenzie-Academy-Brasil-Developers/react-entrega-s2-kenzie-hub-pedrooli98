@@ -1,14 +1,15 @@
 import React from "react";
 import Typography from "../../styles/typography";
-import Theme from "../../styles/theme";
 import Form from "./styles";
 import Input from "../Input";
-import Button from "../Button";
+import {Button,SubmitButton} from "../Button";
 
-const FormLogin = () =>{
+const FormLogin = ({loading}) =>{
     return(
       <Form>
-        <Typography type="title1" color={Theme.greyScale.grey0}>
+        <Typography font="title1"
+          color="white"
+        >
           Login
         </Typography>
         <Input
@@ -19,16 +20,16 @@ const FormLogin = () =>{
           label={"Senha"}
           type={"password"}
         />
-        <Button>
-          <Typography color={Theme.greyScale.grey0} type="headlineBold">
+        <SubmitButton buttonStyle="big" loading={loading}>
+          <Typography font="headlineBold" colors="grey">
             Entrar
           </Typography>
-        </Button>
-        <Typography color={Theme.greyScale.grey1}>
+        </SubmitButton>
+        <Typography color="grey">
         Ainda não possui uma conta ?
         </Typography>
-        <Button>
-          <Typography color={Theme.greyScale.grey0} type="headlineBold">
+        <Button buttonStyle="big" loading={loading}>
+          <Typography font="headlineBold">
             Cadastre-se
           </Typography>
         </Button>

@@ -1,17 +1,22 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import Login from "../pages/Login";
+import Register from "../pages/Register";
 
-const Routes = () => {
+const Routes = ({loading}) => {
   return(
     <Switch>
       <Route exact path="/">
-        <Login/>
+        <Login
+        loading={loading}
+        />
       </Route>
-      <Route path={"register"}>
-
+      <Route path={"/register"}>
+        <Register
+        loading={loading}
+        />
       </Route>
-      <Route path={"register"}>
+      <Route path={"/home"}>
 
       </Route>
     </Switch>

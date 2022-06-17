@@ -2,12 +2,49 @@ import React from "react";
 import ThemeButton from "./styles";
 
 
-const Button = ({children}) => {
+export const Button = ({children,onClick,loading,buttonStyle }) => {
   return(
-    <ThemeButton>
-      {children}
-    </ThemeButton>
+    <>
+        {loading ? (
+          <ThemeButton 
+            disabled={loading}
+            buttonStyle={buttonStyle}
+          >Carregando..
+          .</ThemeButton>
+          )
+        :(
+          <ThemeButton 
+            onClick={onClick}
+            buttonStyle={buttonStyle}
+          >{children}</ThemeButton>  
+        )}
+      </>
   )
 }
 
-export default Button
+export const SubmitButton = ({children,loading,buttonStyle}) => {
+  return(
+    <>
+    {loading ? (
+      <ThemeButton 
+      type="submit"
+      disabled={loading}
+      buttonStyle={buttonStyle}
+      >Carregando...</ThemeButton>
+      )
+    :(
+      <ThemeButton
+      type="submit"
+      buttonStyle={buttonStyle}
+      >
+        {children}
+      </ThemeButton>  
+    )}
+  </>
+  )
+}
+
+
+
+
+

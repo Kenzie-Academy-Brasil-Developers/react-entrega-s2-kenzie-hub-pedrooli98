@@ -8,6 +8,6 @@ justify-content:center;
 text-align:center;
 height:100vh;
 gap:1.4rem;
-margin:60px auto;
+margin-top: ${props => props.mt};
 `
 export default Container

@@ -2,9 +2,8 @@ import styled, {css} from "styled-components";
 
 const Typography = styled.p`
   font-family: 'Inter', sans-serif;
-  color:${({color}) => color};
-  ${({type}) => {
-    switch(type){
+  ${({font}) => {
+    switch(font){
       case "logo":
         return css`
           font-size:1.3rem;
@@ -40,10 +39,27 @@ const Typography = styled.p`
         return css`
           font-size:0.7rem;
           font-weight:400;
+        `
+      }
+    }}
+  ${props=>{
+    switch(props.color){
+      case "grey":
+        return css`
+          color:#868E96;
+        `
+      case "colorPrimary":
+        return css`
+          color:#FF577F;
+        `
 
+      default:
+        return css`
+          color:#F8F9FA;
         `
     }
   }}
+
 `
 
 export default Typography
