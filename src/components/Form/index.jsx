@@ -26,7 +26,7 @@ const FormLogin = ({loading}) =>{
           </Typography>
         </SubmitButton>
         <Typography color="grey">
-        Ainda não possui uma conta ?
+        Ainda não possui uma conta?
         </Typography>
         <Button buttonStyle="big" loading={loading}>
           <Typography font="headlineBold">

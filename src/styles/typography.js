@@ -9,7 +9,6 @@ const Typography = styled.p`
           font-size:1.3rem;
           font-weight:bold;
         `
-
       case "title1":
         return css`
           font-size:1.1rem;
@@ -52,7 +51,6 @@ const Typography = styled.p`
         return css`
           color:#FF577F;
         `
-
       default:
         return css`
           color:#F8F9FA;

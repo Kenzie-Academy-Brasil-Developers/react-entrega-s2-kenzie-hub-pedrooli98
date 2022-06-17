@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const InputTheme = styled.div`
+const SelectTheme = styled.div`
   width:100%;
   height:auto;
   display:flex;
@@ -23,14 +23,12 @@ const InputTheme = styled.div`
      }
     }
 
-    select{
-      border:none;
-      color:#F8F9FA;
-      font-size:1rem;
-      background-color:#343B41;
-      width:100%;
-
-    }
-  
+  select{
+    border:none;
+    color:#F8F9FA;
+    font-size:1rem;
+    background-color:#343B41;
+    width:100%;
+  } 
 `
-export default InputTheme
+export default SelectTheme

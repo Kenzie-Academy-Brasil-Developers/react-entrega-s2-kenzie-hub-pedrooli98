@@ -3,6 +3,7 @@ import Form from "../styles";
 import Typography from "../../../styles/typography";
 import Input from "../../Input";
 import { Button, SubmitButton } from "../../Button";
+import Select from "../../Select";
 
 
 const FormSubmit = ({loading}) => {
@@ -38,6 +39,9 @@ const FormSubmit = ({loading}) => {
           label={"Contato"}
           type={"text"}
       />
+      <Select
+        label="Selecionar módulo"
+      />
       <SubmitButton 
       buttonStyle="big"
       loading={loading}
@@ -46,6 +50,9 @@ const FormSubmit = ({loading}) => {
             Cadastre-se
         </Typography>
       </SubmitButton>
+
+        
+      
     </Form>
     
   )
