@@ -1,5 +1,5 @@
 import React from "react";
-import Container from "../../styles/container";
+import {Container} from "../../styles/container";
 import Typography from "../../styles/typography";
 import FormSubmit from "../../components/Form/FormRegister";
 

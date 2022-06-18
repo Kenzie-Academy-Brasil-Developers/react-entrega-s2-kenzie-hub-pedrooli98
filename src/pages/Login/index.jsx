@@ -1,6 +1,6 @@
 import React from "react";
 import FormLogin from "../../components/Form";
-import Container from "../../styles/container";
+import {Container} from "../../styles/container";
 import Typography from "../../styles/typography";
 
 

@@ -17,13 +17,13 @@ const InputTheme = styled.div`
     align-items:center;
     border-radius: 4px;
     padding: 10px 16px;
-    &:hover{
-      border: 1.2182px solid #F8F9FA;
-      transition:0.3s;
-     }
     }
+  div:hover{
+    border: 1.2182px solid #F8F9FA;
+    transition:0.3s;
+  }
 
-    select{
+    input{
       border:none;
       color:#F8F9FA;
       font-size:1rem;

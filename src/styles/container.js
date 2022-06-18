@@ -1,13 +1,60 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
-const Container = styled.div`
+export const Container = styled.div`
 display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
 text-align:center;
-height:100vh;
 gap:1.4rem;
-margin-top: ${props => props.mt};
+padding:0px calc(100%/4);
 `
-export default Container
+
+export const ContainerHome = styled(Container)`
+  width:100%;
+  ${props => {
+    switch(props.size){
+      case "header":
+        return css`
+          padding:0 calc(100%/4);
+          height: 64px;
+          & > div{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            flex-wrap:wrap;
+            width:100%;
+            min-width: 273px;
+          }
+        border-bottom: 1px solid #343B41
+          
+        `
+      case "section":
+        return css`
+          padding:0 calc(100%/4);
+          height: 100px;
+          & > div{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            width:100%;
+            min-width: 273px;
+          }
+          border-bottom: 1px solid #343B41
+        `
+        
+      default:
+        return css`
+          padding:0 calc(100%/4);
+          height: 64px;
+          & > div{
+            display:flex;
+            justify-content:space-between;
+            flex-wrap:wrap;
+            width:100%;
+            min-width: 273px;
+          }
+        ` 
+    }
+  }}
+`
