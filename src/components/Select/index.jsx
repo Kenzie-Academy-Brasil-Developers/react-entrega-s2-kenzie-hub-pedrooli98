@@ -1,7 +1,8 @@
 import React from "react";
 import SelectTheme from "./style";
 import Typography from "../../styles/typography";
-const Select = ({label}) => {
+
+export const SelectModule = ({label}) => {
   return (
     <SelectTheme>
       <Typography>
@@ -21,5 +22,21 @@ const Select = ({label}) => {
   )
 }
 
-export default Select
+export const SelectExperience = ({label}) => {
+  return (
+    <SelectTheme>
+      <Typography>
+        {label}
+      </Typography>
+      <div>
+        <select name="modulos" value=" ">
+          <option value="iniciante">Iniciante</option>
+          <option value="intermediario">Intermediario</option>
+          <option value="avançar">Avançado</option>
+        </select>
+      </div>
+    </SelectTheme>
+  )
+}
+
 

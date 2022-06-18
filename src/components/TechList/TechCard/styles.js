@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-const Card = styled.div`
+const Card = styled.button`
   height: 48px;
   width:100%;
   background-color:#121214;
+  border:none;
   padding:12px;
   display:flex;
   align-items:center;

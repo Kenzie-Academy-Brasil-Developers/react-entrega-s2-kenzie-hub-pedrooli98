@@ -3,7 +3,7 @@ import Form from "../styles";
 import Typography from "../../../styles/typography";
 import Input from "../../Input";
 import { Button, SubmitButton } from "../../Button";
-import Select from "../../Select";
+import {SelectModule} from "../../Select";
 
 
 const FormSubmit = ({loading}) => {
@@ -39,7 +39,7 @@ const FormSubmit = ({loading}) => {
           label={"Contato"}
           type={"text"}
       />
-      <Select
+      <SelectModule
         label="Selecionar módulo"
       />
       <SubmitButton 

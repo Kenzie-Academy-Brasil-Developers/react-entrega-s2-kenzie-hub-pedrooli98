@@ -5,13 +5,23 @@ import {Button} from "../Button/index"
 import ThemeList from "./styles";
 import TechCard from "./TechCard";
 
-const TechList = () => {
+const TechList = ({setModalRegister, setModalUpdte}) => {
+
+  const openRegisterModal = () =>{
+    setModalRegister("flex")
+  }
+
+  const openUpdateModal = () => {
+    setModalUpdte("flex")
+  }
+
+
   return (
     <>
     <ContainerHome>
       <div>
         <Typography font="title3">Tecnologias</Typography>
-        <Button buttonStyle="smaller">
+        <Button buttonStyle="smaller" onClick={openRegisterModal}>
           <Typography font="title3">+</Typography>
         </Button>
       </div>
@@ -22,14 +32,7 @@ const TechList = () => {
           <TechCard
             tech="Next Js"
             status="Avançado"
-          />
-          <TechCard
-            tech="React"
-            status="Avançado"
-          />
-          <TechCard
-            tech="Node Js"
-            status="Iniciante"
+            onClick={openUpdateModal}
           />
       </ThemeList>
     </Container>
