@@ -3,14 +3,14 @@ import Typography from "../../styles/typography";
 import InputTheme from "./styles";
 
 
-const Input = ({label, type}) => {
+const Input = ({label, type, register, name, errors}) => {
   return(
-    <InputTheme>
+    <InputTheme isErrored={!!errors}>
     <Typography>
-      {label}
+      {label}{!!errors && <span> - {errors}</span>}
     </Typography>
       <div>
-        <input type={type} />
+        <input type={type} {...register(name)}/>
       </div>
     </InputTheme>
   )

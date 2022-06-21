@@ -4,8 +4,27 @@ import { SubmitButton, Button } from "../Button";
 import Input from "../Input";
 import {SelectExperience} from "../Select";
 import { ModalTheme } from "./style";
+import { useForm } from "react-hook-form";
+import {yupResolver} from '@hookform/resolvers/yup' 
+import * as yup from "yup"
 
 export const RegisterModal = ({setRegisterModal}) => {
+
+  const formSchema = yup.object().shape({
+    title:yup 
+          .string()
+          .required("Campo Obrigatorio"),
+    status:yup
+            .string()
+            .required("Campo obrigatório"),
+  })
+  
+  const {register, handleSubmit, formState:{errors}}=useForm({
+    resolver:yupResolver(formSchema)
+  })
+
+  const onSubmitFunction = (data) => console.log(data)
+  
   const closeModal = () => {
     setRegisterModal("none")
   }
@@ -21,13 +40,19 @@ export const RegisterModal = ({setRegisterModal}) => {
           <Typography>X</Typography>
         </Button>
       </div>
-      <form className="modal-inputs">
+      <form className="modal-inputs" onSubmit={handleSubmit(onSubmitFunction)}>
       <Input
-        label="name"
+        label="Nome da tecnologia"
         type="text"
+        errors={errors.title?.message}
+        register={register}
+        name="title"
       ></Input>
       <SelectExperience
         label="Selecionar status"
+        name="status"
+        register={register}
+        errors={errors.status?.message}
       />
       <SubmitButton
         buttonStyle="big"
@@ -37,39 +62,56 @@ export const RegisterModal = ({setRegisterModal}) => {
   )
 }
 
-export const UpdateModal = ({setModalUpdte}) =>{
+// export const UpdateModal = ({setModalUpdte}) =>{
 
-  const closeModal = () => {
-    setModalUpdte("none")
-  }
+//   const formSchema = yup.object().shape({
+//     name:yup 
+//           .string()
+//           .required("Email Obrigatorio"),
+//     password:yup
+//             .string()
+//             .required("Campo obrigatório"),
+//   })
+  
+//   const {register, handleSubmit, formState:{errors}}=useForm({
+//     resolver:yupResolver(formSchema)
+//   })
 
-  return (
-    <ModalTheme>
-      <div className="modal-header">
-        <Typography font="title3">Cadastrar Tecnologia</Typography>
-          <Button 
-            buttonStyle="smaller"
-            onClick={closeModal}
-          >
-            <Typography>X</Typography>
-          </Button>
-        </div>
-        <form className="modal-inputs">
-        <Input
-          label="name"
-          type="text"
-        ></Input>
-        <SelectExperience
-          label="Selecionar status"
-        />
-        <div className="modal-buttons">
-          <SubmitButton buttonStyle="mid"><Typography font="title3">Salvar alterações</Typography></SubmitButton>
+//   const onSubmitFunction = (data) => console.log(data)
 
-          <SubmitButton><Typography font="title3">Excluir</Typography></SubmitButton>
+//   const closeModal = () => {
+//     setModalUpdte("none")
+//   }
 
-        </div>
-        </form>
-      </ModalTheme>
-  )
-}
+//   return (
+//     <ModalTheme>
+//       <div className="modal-header">
+//         <Typography font="title3">Cadastrar Tecnologia</Typography>
+//           <Button 
+//             buttonStyle="smaller"
+//             onClick={closeModal}
+//           >
+//             <Typography>X</Typography>
+//           </Button>
+//         </div>
+//         <form className="modal-inputs">
+//         <Input
+//           label="name"
+//           type="text"
+//           name="name"
+//           register={register}
+//         ></Input>
+//         <SelectExperience
+//           label="Selecionar status"
+//         />
+//         <div className="modal-buttons">
+//           <SubmitButton buttonStyle="mid"><Typography font="title3">Salvar alterações</Typography></SubmitButton>
+
+//           <SubmitButton><Typography font="title3">Excluir</Typography></SubmitButton>
+
+//         </div>
+//         </form>
+//       </ModalTheme>
+//   )
+// }
 

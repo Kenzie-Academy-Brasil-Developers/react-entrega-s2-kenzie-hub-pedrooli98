@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 const SelectTheme = styled.div`
   width:100%;
@@ -29,6 +29,15 @@ const SelectTheme = styled.div`
     font-size:1rem;
     background-color:#343B41;
     width:100%;
-  } 
+  }
+  ${(props) => 
+      props.isErrored && css`
+        div{
+          border-color:red;
+        }
+        span{
+          color:red;
+        }
+      ` }
 `
 export default SelectTheme

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Bio from "../../components/Bio";
 import Header from "../../components/Header";
-import {RegisterModal, UpdateModal} from "../../components/Modals";
+import {RegisterModal} from "../../components/Modals";
 import { ModalBackGround } from "../../components/Modals/style";
 import TechList from "../../components/TechList";
 import Typography from "../../styles/typography";
@@ -27,9 +27,9 @@ const Home = () => {
       <ModalBackGround
         display={displayUpdateModal}
       >
-        <UpdateModal
+        {/* <UpdateModal
           setModalUpdte={setDisplayUpdateModal}
-        />
+        /> */}
       </ModalBackGround>
       <Header/>
       <Bio
