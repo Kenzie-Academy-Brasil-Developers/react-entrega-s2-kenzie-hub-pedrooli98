@@ -12,7 +12,7 @@ const Routes = ({loading}) => {
         loading={loading}
         />
       </Route>
-      <Route path={"/register"}>
+      <Route path={"/"}>
         <Register
         loading={loading}
         />

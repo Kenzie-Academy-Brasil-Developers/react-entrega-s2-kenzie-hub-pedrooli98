@@ -14,7 +14,7 @@ export const SelectModule = ({label, register, name, errors}) => {
       </Typography>
       <div>
         <select name="modulos"  value={select} {...register(name)} onChange={(e)=>setSelect(e.target.value)}>
-          <option value="M1">M1</option>
+          <option value="Primeiro Modulo (intruducao front)">M1</option>
           <option value="M2">M2</option>
           <option value="M3">M3</option>
           <option value="M4">M4</option>

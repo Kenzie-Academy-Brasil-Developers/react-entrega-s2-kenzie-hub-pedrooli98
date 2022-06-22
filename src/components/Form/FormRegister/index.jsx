@@ -2,16 +2,20 @@ import React from "react";
 import Form from "../styles";
 import Typography from "../../../styles/typography";
 import Input from "../../Input";
-import { Button, SubmitButton } from "../../Button";
+import { SubmitButton } from "../../Button";
 import {SelectModule} from "../../Select";
 import { useForm } from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup' 
 import * as yup from "yup"
-import InputTheme from "../../Input/styles";
+import api from "../../../services/api";
+import {toast} from 'react-toastify'
+import { useHistory } from "react-router-dom";
 
 
 
 const FormSubmit = ({loading}) => {
+
+  const history = useHistory()
 
   const formSchema = yup.object().shape({
     email:yup 
@@ -30,8 +34,15 @@ const FormSubmit = ({loading}) => {
     resolver: yupResolver(formSchema)
   })
 
-  const onSubmitFunction = (data) => {
-    console.log(data) 
+  const onSubmitFunction = ({email, password, passwordConfirm, name, bio, contact, course_module}) => {
+    const user = {email, password, name, bio, contact, course_module}
+    api
+      .post("/users", user)
+      .then((response) => {
+        toast.success("Sucesso ao criar a conta")
+        history.push("/")
+      })
+      .catch((err)=>toast.error("Tente outro E-mail"))
   }
 
 

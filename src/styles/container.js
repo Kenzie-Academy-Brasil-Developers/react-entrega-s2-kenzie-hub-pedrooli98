@@ -7,7 +7,7 @@ align-items:center;
 justify-content:center;
 text-align:center;
 gap:1.4rem;
-padding:0px calc(100%/4);
+padding:30px calc(100%/4);
 `
 
 export const ContainerHome = styled(Container)`
