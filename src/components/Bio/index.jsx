@@ -7,7 +7,7 @@ const Bio = ({name, bio}) => {
     <ContainerHome size="section">
       <div>
         <Typography font="title2">{name}</Typography>
-        <Typography color="grey">{bio}</Typography>
+        <p><Typography color="grey">{bio}</Typography></p>
       </div>
     </ContainerHome>
   )

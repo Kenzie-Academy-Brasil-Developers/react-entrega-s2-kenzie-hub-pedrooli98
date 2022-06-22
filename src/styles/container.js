@@ -12,6 +12,7 @@ padding:30px calc(100%/4);
 
 export const ContainerHome = styled(Container)`
   width:100%;
+  flex-wrap:wrap;
   ${props => {
     switch(props.size){
       case "header":
@@ -39,6 +40,10 @@ export const ContainerHome = styled(Container)`
             flex-wrap:wrap;
             width:100%;
             min-width: 273px;
+          }
+          p{
+            max-width: 220px;
+            text-align:right;
           }
           border-bottom: 1px solid #343B41
         `

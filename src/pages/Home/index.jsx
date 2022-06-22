@@ -14,12 +14,15 @@ const Home = ({authenticated, setAuthenticated}) => {
   const [displayRegisterModal, setDisplayRegisterModal] = useState("none")
   const [displayUpdateModal, setDisplayUpdateModal] = useState("none")
   const [techs, setTechs] = useState([])
+  const [user, setUser] = useState({})
+ console.log("user ", user);
 
 
   useEffect(()=>{
     api.get(`/users/${userId}`)
     .then((res)=>{
       setTechs(res.data.techs)
+      setUser(res.data)
     })
     .catch((err)=>{
       console.log(err)
@@ -58,8 +61,8 @@ const Home = ({authenticated, setAuthenticated}) => {
       </ModalBackGround>
       <Header/>
       <Bio
-        name="Pedro"
-        bio="poxxxa"
+        name={user.name}
+        bio={user.bio}
       />
       <TechList
         setModalRegister={setDisplayRegisterModal}
