@@ -24,7 +24,7 @@ const Home = ({authenticated, setAuthenticated}) => {
     .catch((err)=>{
       console.log(err)
     })
-  },)
+  })
 
     const token = localStorage.getItem("@Kenziehub:token")
     const userId = localStorage.getItem("@Kenziehub:user")
