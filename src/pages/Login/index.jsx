@@ -5,7 +5,7 @@ import Typography from "../../styles/typography";
 
 
 
-const Login = ({loading}) => {
+const Login = ({loading, authenticated, setAuthenticaded}) => {
   return (
     <Container>
       <Typography font="logo" color="colorPrimary">
@@ -13,6 +13,8 @@ const Login = ({loading}) => {
       </Typography>
       <FormLogin
         loading={loading}
+        authenticated={authenticated}
+        setAuthenticaded={setAuthenticaded}
       />
     </Container>
   )

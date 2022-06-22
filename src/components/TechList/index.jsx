@@ -5,7 +5,7 @@ import {Button} from "../Button/index"
 import ThemeList from "./styles";
 import TechCard from "./TechCard";
 
-const TechList = ({setModalRegister, setModalUpdte}) => {
+const TechList = ({setModalRegister, setModalUpdte, techs}) => {
 
   const openRegisterModal = () =>{
     setModalRegister("flex")
@@ -29,11 +29,16 @@ const TechList = ({setModalRegister, setModalUpdte}) => {
 
     <Container>
       <ThemeList>
-          <TechCard
-            tech="Next Js"
-            status="Avançado"
-            onClick={openUpdateModal}
-          />
+        {techs.map((tech,index)=>{
+          return (
+            <TechCard
+              key={index}
+              tech={tech.title}
+              status={tech.status}
+            />
+          )
+        })}
+
       </ThemeList>
     </Container>
     </>
@@ -41,3 +46,11 @@ const TechList = ({setModalRegister, setModalUpdte}) => {
 }
 
 export default TechList
+
+/*           <TechCard
+            tech="Next Js"
+            status="Avançado"
+            onClick={openUpdateModal}
+          />
+          
+          */

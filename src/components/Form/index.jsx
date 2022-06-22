@@ -6,8 +6,13 @@ import {Button,SubmitButton} from "../Button";
 import {yupResolver} from '@hookform/resolvers/yup' 
 import * as yup from "yup"
 import { useForm } from "react-hook-form";
+import { Redirect, useHistory } from "react-router-dom";
+import api from "../../services/api";
+import { toast } from "react-toastify";
 
-const FormLogin = ({loading}) =>{
+const FormLogin = ({loading, authenticated, setAuthenticaded}) =>{
+
+  const history = useHistory()
 
   const formSchema = yup.object().shape({
     email:yup 
@@ -24,10 +29,31 @@ const FormLogin = ({loading}) =>{
     resolver:yupResolver(formSchema)
   })
 
-  const onSubmitFunction = (data) => console.log(data)
+  const onSubmitFunction = (data) => {
+    console.log(data)
+    api.post("/sessions", data)
+    .then((res)=> {
+      const {token,user} = res.data;
+      console.log(res.data)
+      setAuthenticaded(true)
+      localStorage.setItem("@Kenziehub:user", user.id)
+      localStorage.setItem("@Kenziehub:token", token)
+      history.push("/home")
+      toast.success("Login Efetuado com sucesso")
+    })
+    .catch((err)=>{
+      console.log(err)
+      toast.error("Senha ou email incorretos")
+    })
+  }
+
+  if(authenticated){
+    return <Redirect to="/home"/>
+  }
 
     return(
-      <Form onSubmit={handleSubmit(onSubmitFunction)}>
+      <Form >
+        <form onSubmit={handleSubmit(onSubmitFunction)}>
         <Typography font="title1"
           color="white"
         >
@@ -52,10 +78,11 @@ const FormLogin = ({loading}) =>{
             Entrar
           </Typography>
         </SubmitButton>
+        </form>
         <Typography color="grey">
         Ainda não possui uma conta?
         </Typography>
-        <Button buttonStyle="big" loading={loading}>
+        <Button buttonStyle="big" loading={loading} onClick={()=>history.push("/register")}>
           <Typography font="headlineBold">
             Cadastre-se
           </Typography>

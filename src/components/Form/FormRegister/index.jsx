@@ -47,7 +47,8 @@ const FormSubmit = ({loading}) => {
 
 
   return (
-    <Form onSubmit={handleSubmit(onSubmitFunction)}>
+    <Form>
+      <form onSubmit={handleSubmit(onSubmitFunction)}>
       <Typography font="title1">
           Crie sua conta
       </Typography>
@@ -118,7 +119,7 @@ const FormSubmit = ({loading}) => {
         </Typography>
       </SubmitButton>
 
-        
+      </form>
       
     </Form>
     

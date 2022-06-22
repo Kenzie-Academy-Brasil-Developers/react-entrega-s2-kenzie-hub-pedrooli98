@@ -1,15 +1,39 @@
-import React, { useState } from "react";
+import React, { useState  } from "react";
 import Bio from "../../components/Bio";
 import Header from "../../components/Header";
 import {RegisterModal} from "../../components/Modals";
 import { ModalBackGround } from "../../components/Modals/style";
 import TechList from "../../components/TechList";
 import Typography from "../../styles/typography";
+import { Redirect } from "react-router-dom";
+import api from "../../services/api";
+import { useEffect } from "react";
 
 
-const Home = () => {
+const Home = ({authenticated, setAuthenticated}) => {
   const [displayRegisterModal, setDisplayRegisterModal] = useState("none")
   const [displayUpdateModal, setDisplayUpdateModal] = useState("none")
+  const [techs, setTechs] = useState([])
+
+
+  useEffect(()=>{
+    api.get(`/users/${userId}`)
+    .then((res)=>{
+      setTechs(res.data.techs)
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+  },)
+
+    const token = localStorage.getItem("@Kenziehub:token")
+    const userId = localStorage.getItem("@Kenziehub:user")
+
+  if(!authenticated){
+    return <Redirect to="/"/>
+  }
+
+
 
 
 
@@ -21,6 +45,7 @@ const Home = () => {
       >
         <RegisterModal
           setRegisterModal={setDisplayRegisterModal}
+          token={token}
         />
       </ModalBackGround>
 
@@ -39,8 +64,11 @@ const Home = () => {
       <TechList
         setModalRegister={setDisplayRegisterModal}
         setModalUpdte={setDisplayUpdateModal}
+        techs={techs}
       />
     </main>
   )
 }
 export default Home
+
+//larissabritor@gmail.com

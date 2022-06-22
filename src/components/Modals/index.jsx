@@ -7,8 +7,9 @@ import { ModalTheme } from "./style";
 import { useForm } from "react-hook-form";
 import {yupResolver} from '@hookform/resolvers/yup' 
 import * as yup from "yup"
+import api from "../../services/api";
 
-export const RegisterModal = ({setRegisterModal}) => {
+export const RegisterModal = ({setRegisterModal, token}) => {
 
   const formSchema = yup.object().shape({
     title:yup 
@@ -23,7 +24,15 @@ export const RegisterModal = ({setRegisterModal}) => {
     resolver:yupResolver(formSchema)
   })
 
-  const onSubmitFunction = (data) => console.log(data)
+  const onSubmitFunction = (data) => {
+    api.post("/users/techs",data,{
+      headers: {
+        Authorization:`Bearer ${token}`
+      }
+    })
+    .then((res)=>console.log(res))
+    .catch((err)=> console.log(err))
+  }
   
   const closeModal = () => {
     setRegisterModal("none")
