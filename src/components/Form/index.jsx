@@ -30,11 +30,9 @@ const FormLogin = ({loading, authenticated, setAuthenticaded}) =>{
   })
 
   const onSubmitFunction = (data) => {
-    console.log(data)
     api.post("/sessions", data)
     .then((res)=> {
       const {token,user} = res.data;
-      console.log(res.data)
       setAuthenticaded(true)
       localStorage.setItem("@Kenziehub:user", user.id)
       localStorage.setItem("@Kenziehub:token", token)
@@ -42,7 +40,6 @@ const FormLogin = ({loading, authenticated, setAuthenticaded}) =>{
       toast.success("Login Efetuado com sucesso")
     })
     .catch((err)=>{
-      console.log(err)
       toast.error("Senha ou email incorretos")
     })
   }

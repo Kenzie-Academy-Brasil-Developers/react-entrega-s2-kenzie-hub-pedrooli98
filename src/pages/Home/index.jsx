@@ -11,11 +11,11 @@ import { useEffect } from "react";
 
 
 const Home = ({authenticated, setAuthenticated}) => {
+
   const [displayRegisterModal, setDisplayRegisterModal] = useState("none")
   const [displayUpdateModal, setDisplayUpdateModal] = useState("none")
   const [techs, setTechs] = useState([])
   const [user, setUser] = useState({})
- console.log("user ", user);
 
 
   useEffect(()=>{
