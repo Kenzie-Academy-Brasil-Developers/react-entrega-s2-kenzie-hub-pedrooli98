@@ -7,7 +7,7 @@ export const ModalBackGround = styled.div`
   align-items:center;
   background-color:rgba(18, 18, 20, 0.5);
   position:absolute;
-  display:${props => props.display}
+  display:${props => props.display};
 `
 
 export const ModalTheme = styled.div`
@@ -43,5 +43,23 @@ export const ModalTheme = styled.div`
     display:flex;
     flex-direction:column;
     gap:1rem;
+  }
+
+  .modal-value {
+    height: 40px;
+    width:100%;
+    background-color: #343B41;
+    border: 1.2182px solid #343B41;
+    display:flex;
+    align-items:center;
+    border-radius: 4px;
+    padding: 10px 16px;
+    }
+    select{
+    border:none;
+    color:#F8F9FA;
+    font-size:1rem;
+    background-color:#343B41;
+    width:100%;
   }
 `

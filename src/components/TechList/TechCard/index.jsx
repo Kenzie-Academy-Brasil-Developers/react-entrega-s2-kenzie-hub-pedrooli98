@@ -4,13 +4,14 @@ import Card from "./styles";
 import {IoTrash} from "react-icons/io5"
 
 
-const TechCard = ({tech, status, onClick, id}) =>{
+const TechCard = ({tech, status, onClick, id, handleModalUpdate}) =>{
 
   
 
   return (
     <Card
-      
+      className={id}
+      onClick={handleModalUpdate}
     >
       <Typography font="title3">{tech}</Typography>
     <div>

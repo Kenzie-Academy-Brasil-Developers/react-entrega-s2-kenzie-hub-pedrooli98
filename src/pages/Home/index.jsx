@@ -8,14 +8,17 @@ import Typography from "../../styles/typography";
 import { Redirect } from "react-router-dom";
 import api from "../../services/api";
 import { useEffect } from "react";
+import { UpdateModal } from "../../components/Modals/ModalUpdate";
 
 
 const Home = ({authenticated, setAuthenticated}) => {
 
   const [displayRegisterModal, setDisplayRegisterModal] = useState("none");
+  const [selectValue, setSelectValue] = useState("iniciante")
   const [displayUpdateModal, setDisplayUpdateModal] = useState("none");
   const [techs, setTechs] = useState([]);
   const [user, setUser] = useState({});
+  const [selectedTech, setSelectedTech] = useState({})
 
   
   useEffect(()=>{
@@ -36,6 +39,14 @@ const Home = ({authenticated, setAuthenticated}) => {
     return <Redirect to="/"/>
   }
 
+  const handleModalUpdate = (e) =>{
+    const techId = e.target.className.slice(17)
+    const selectedTech = [...techs.filter((tech)=>tech.id===techId)]
+    setSelectedTech(selectedTech[0])
+    setSelectValue(selectedTech[0].status)
+    setDisplayUpdateModal("flex")
+
+  }
 
 
 
@@ -55,9 +66,15 @@ const Home = ({authenticated, setAuthenticated}) => {
       <ModalBackGround
         display={displayUpdateModal}
       >
-        {/* <UpdateModal
+      
+        <UpdateModal 
           setModalUpdte={setDisplayUpdateModal}
-        /> */}
+          tech={selectedTech}
+          selectValue={selectValue}
+          setSelectValue={setSelectValue}
+          token={token}
+        />
+
       </ModalBackGround>
       <Header/>
       <Bio
@@ -68,7 +85,8 @@ const Home = ({authenticated, setAuthenticated}) => {
         setModalRegister={setDisplayRegisterModal}
         setModalUpdte={setDisplayUpdateModal}
         techs={techs}
-        
+        setSelectedTech={setSelectedTech}
+        handleModalUpdate={handleModalUpdate}
       />
     </main>
   )

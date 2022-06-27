@@ -7,12 +7,14 @@ import TechCard from "./TechCard";
 import api from "../../services/api";
 import { toast } from "react-toastify";
 
-const TechList = ({setModalRegister, setModalUpdte, techs}) => {
+const TechList = ({setModalRegister, setModalUpdte, techs, handleModalUpdate, setSelectedTech}) => {
 
   const token = localStorage.getItem("@Kenziehub:token")
 
   const deleteCard = (e) => {
     const techId = e.target.id;
+    console.log("techId ", techId);
+
     api.delete(`users/techs/${techId}`, {
       headers: {
         Authorization: `Bearer ${token}`
@@ -52,6 +54,7 @@ const TechList = ({setModalRegister, setModalUpdte, techs}) => {
               status={tech.status}
               id={tech.id}
               onClick={deleteCard}
+              handleModalUpdate={handleModalUpdate}
             />
           )
         })}

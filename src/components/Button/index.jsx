@@ -9,6 +9,7 @@ export const Button = ({children,onClick,loading,buttonStyle }) => {
           <ThemeButton 
             disabled={loading}
             buttonStyle={buttonStyle}
+            type="button"
           >Carregando..
           .</ThemeButton>
           )
@@ -16,6 +17,7 @@ export const Button = ({children,onClick,loading,buttonStyle }) => {
           <ThemeButton 
             onClick={()=>onClick()}
             buttonStyle={buttonStyle}
+            type="button"
           >{children}</ThemeButton>  
         )}
       </>
