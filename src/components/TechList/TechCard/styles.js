@@ -14,6 +14,25 @@ const Card = styled.button`
     background-color:#343B41;
     transition:.3s;
   }
+
+  div {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+  }
+
+  .icon{
+    color:white;
+    width:17px;
+    height:17px;
+  }
+
+  .icon:hover{
+    color:red;
+    transition:.3s;
+  }
 `
 
 export default Card

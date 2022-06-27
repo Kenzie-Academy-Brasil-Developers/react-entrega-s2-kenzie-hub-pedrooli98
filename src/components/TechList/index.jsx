@@ -4,8 +4,23 @@ import Typography from "../../styles/typography";
 import {Button} from "../Button/index"
 import ThemeList from "./styles";
 import TechCard from "./TechCard";
+import api from "../../services/api";
+import { toast } from "react-toastify";
 
 const TechList = ({setModalRegister, setModalUpdte, techs}) => {
+
+  const token = localStorage.getItem("@Kenziehub:token")
+
+  const deleteCard = (e) => {
+    const techId = e.target.id;
+    api.delete(`users/techs/${techId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    .then((res)=>toast.success("Tecnologia deletada !!!"))
+    .catch((err)=>toast.error("Algo deu errado :( "))
+  }
 
   const openRegisterModal = () =>{
     setModalRegister("flex")
@@ -35,6 +50,8 @@ const TechList = ({setModalRegister, setModalUpdte, techs}) => {
               key={index}
               tech={tech.title}
               status={tech.status}
+              id={tech.id}
+              onClick={deleteCard}
             />
           )
         })}

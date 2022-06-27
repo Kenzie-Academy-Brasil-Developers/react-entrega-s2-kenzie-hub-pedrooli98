@@ -43,7 +43,7 @@ const FormSubmit = ({loading}) => {
         history.push("/")
       })
       .catch((err)=>toast.error("Tente outro E-mail"))
-  }
+  } 
 
 
   return (

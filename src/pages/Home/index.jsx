@@ -12,12 +12,12 @@ import { useEffect } from "react";
 
 const Home = ({authenticated, setAuthenticated}) => {
 
-  const [displayRegisterModal, setDisplayRegisterModal] = useState("none")
-  const [displayUpdateModal, setDisplayUpdateModal] = useState("none")
-  const [techs, setTechs] = useState([])
-  const [user, setUser] = useState({})
+  const [displayRegisterModal, setDisplayRegisterModal] = useState("none");
+  const [displayUpdateModal, setDisplayUpdateModal] = useState("none");
+  const [techs, setTechs] = useState([]);
+  const [user, setUser] = useState({});
 
-
+  
   useEffect(()=>{
     api.get(`/users/${userId}`)
     .then((res)=>{
@@ -68,6 +68,7 @@ const Home = ({authenticated, setAuthenticated}) => {
         setModalRegister={setDisplayRegisterModal}
         setModalUpdte={setDisplayUpdateModal}
         techs={techs}
+        
       />
     </main>
   )

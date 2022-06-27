@@ -28,9 +28,9 @@ export const RegisterModal = ({setRegisterModal, token}) => {
     api.post("/users/techs",data,{
       headers: {
         Authorization:`Bearer ${token}`
-      }
+      }       
     })
-    .then((res)=>console.log(res))
+    .then((res)=>closeModal())
     .catch((err)=> console.log(err))
   }
   

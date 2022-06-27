@@ -33,3 +33,14 @@ function App() {
 }
 
 export default App;
+
+
+/*
+
+  => Icone deletar no componente Card e logica para deletar;
+
+  => Modal com funções de atualização e deletar;
+
+  => 
+
+*/
