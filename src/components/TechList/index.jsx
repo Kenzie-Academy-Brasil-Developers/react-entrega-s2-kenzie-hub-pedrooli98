@@ -13,8 +13,6 @@ const TechList = ({setModalRegister, setModalUpdte, techs, handleModalUpdate, se
 
   const deleteCard = (e) => {
     const techId = e.target.id;
-    console.log("techId ", techId);
-
     api.delete(`users/techs/${techId}`, {
       headers: {
         Authorization: `Bearer ${token}`
@@ -26,10 +24,6 @@ const TechList = ({setModalRegister, setModalUpdte, techs, handleModalUpdate, se
 
   const openRegisterModal = () =>{
     setModalRegister("flex")
-  }
-
-  const openUpdateModal = () => {
-    setModalUpdte("flex")
   }
 
 

@@ -9,6 +9,7 @@ import { Redirect } from "react-router-dom";
 import api from "../../services/api";
 import { useEffect } from "react";
 import { UpdateModal } from "../../components/Modals/ModalUpdate";
+import { toast } from "react-toastify";
 
 
 const Home = ({authenticated, setAuthenticated}) => {
@@ -24,11 +25,12 @@ const Home = ({authenticated, setAuthenticated}) => {
   useEffect(()=>{
     api.get(`/users/${userId}`)
     .then((res)=>{
+      toast.success("Tecnologia Cadastrada com Sucesso !")
       setTechs(res.data.techs)
       setUser(res.data)
     })
     .catch((err)=>{
-      console.log(err)
+      toast.error("Algo deu Errado")
     })
   })
 
